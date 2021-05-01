@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>.epub 전자책 읽기</title>
+    <script src="get.js"></script>
+    <script>
+        window.onload = reader.onload;
+    </script>
+    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #pages_wrap{
+            width: 100%;
+            padding: 0;
+            
+        }
+        #pages{
+            position: absolute;
+            overflow: scroll;
+            width: 100%;
+            height: 100%;
+        }
+        .pages{
+            width: 100%;
+            height: 800px;
+            margin: 10px 0;
+            border: 1px solid black;
+            background-color: white;
+        }
+        .pages_in{
+            width: 100%;
+            position: absolute;
+        }
+        
+        #contents_nav{
+            width: 300px;
+            position: relative;
+            z-index: 100;
+            float: left;
+            background-color: white;
+            
+            height: 500px;
+        }
+        #contents_nav_in{
+            overflow: scroll;
+        }
+        
+        #contents_nav_in *{
+            margin: 5px 10px;
+             color: black;
+        }
+    
+    </style>
+</head>
+<body>
+    <header>
+        <h1>전자책 읽기!</h1>
+    </header>
+    
+    
+      <nav>
+          <section id='send_file'>
+              <input type="file" accept=".epub">
+              <button>전송 (미지원)</button>
+          </section>
+          <section id='choose'>
+              <div id='choose_in'>
+
+              </div>
+              <button id='choose_btn' onclick="reader.get_list()">새로고침</button>
+          </section>
+      </nav>
+        
+      <main>
+      
+      <nav id='contents_nav'>
+         <h2>목차</h2>
+         <button id='contents_hidden' onclick="reader.contents.hidden_fn()">목차 숨기기</button>
+          <div id='contents_nav_in'>
+              
+          </div>
+      </nav>
+      <section id='pages_wrap'>
+         <div id='찾기'>
+             <span id='pre_page'>?</span>쪽
+         </div>
+          <div id='pages'>
+              
+          </div>
+      </section>
+    </main>
+    
+    
+</body>
+</html>
